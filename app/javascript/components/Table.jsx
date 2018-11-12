@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import InputGroup from './InputGroup'
 
 class Table extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      rows: 2,
-      columns: 3
+      columns: 3,
+      inputs: [{ text: '' }],
+      name: '',
+      rows: 2
     };
   }
 
@@ -26,6 +29,8 @@ class Table extends Component {
     if (this.state.rows != 1) { this.setState({ rows: this.state.rows - 1 }) }
   }
 
+  handleSubmit = () => {}
+
   render () {
     return (
       <div className='container table'>
@@ -37,15 +42,38 @@ class Table extends Component {
             <hr className="my-4"></hr>
             <div>
               <p>
-                Rows: {this.state.rows}
-                <button onClick = {this.addRow}>+1</button>
-                <button onClick = {this.removeRow}>-1</button>
+                Rows:
+                <button onClick={this.addRow} className='btn btn-sm btn-info'>+1</button>
+                <button onClick={this.removeRow} className='btn btn-sm btn-danger'>-1</button>
               </p>
               <p>
-                Columns: {this.state.columns}
-                <button onClick = {this.addColumn}>+1</button>
-                <button onClick = {this.removeColumn}>-1</button>
+                Columns:
+                <button onClick={this.addColumn} className='btn btn-sm btn-info'>+1</button>
+                <button onClick={this.removeColumn} className='btn btn-sm btn-danger'>-1</button>
               </p>
+            </div>
+            <div className='table--form'>
+              <form onSubmit={this.handleSubmit}>
+                <input
+                  type='text'
+                  className='form-control'
+                  id='name'
+                  placeholder='Table name'
+                  required
+                />
+                <InputGroup columns={this.state.columns} rows={this.state.rows} />
+                <div className='form-group table--email'>
+                  <label htmlFor='email'>Send to</label>
+                  <input
+                    type='email'
+                    className='form-control'
+                    id='email'
+                    placeholder='Email address'
+                    required
+                  />
+                </div>
+                <button type='submit' className='btn btn-light'>Send</button>
+              </form>
             </div>
           </div>
         </div>

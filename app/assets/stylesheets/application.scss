@@ -18,3 +18,9 @@
 body {
   background-image: linear-gradient(to right, #6f919f, #72a0b1, #75afc3, #76bfd4, #77cfe6);
 }
+
+.table {
+  &--email {
+    margin-top: 15px;
+  }
+}
