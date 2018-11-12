@@ -21,10 +21,11 @@ class InputGroup extends Component {
                       <div key={inputId} className='col'>
                         <input
                           type='text'
-                          name={inputId}
                           id={inputId}
                           className='form-control'
                           placeholder='Your text'
+                          onChange={this.props.handleChange}
+                          value={this.props.inputs[inputId]}
                           required
                         />
                       </div>
@@ -43,11 +44,8 @@ class InputGroup extends Component {
 InputGroup.propTypes = {
   columns: PropTypes.number.isRequired,
   rows: PropTypes.number.isRequired,
-};
-
-InputGroup.defaultProps = {
-  columns: 3,
-  rows: 2
+  inputs: PropTypes.object.isRequired,
+  handleChange: PropTypes.func.isRequired
 };
 
 export default InputGroup
