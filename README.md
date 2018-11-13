@@ -1,24 +1,28 @@
-# README
+# Awesome Table
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Technology stack
+- Ruby:         2.5.3
+- Rails:        5.2.1
+- PostgreSQL:   9.5.3
+- RSpec:        3.8
+- Node:         6.9.2
+- React
+- Haml
+- SASS
 
-Things you may want to cover:
+## Setup
+To setup application execute script:
+```
+  bin/setup
+```
+It installs all gems, yarn packages, creates database, runs migrations and starts a rails server.
 
-* Ruby version
+## Emails
+For email preview on development env we use gem `Letter Opener`. Whenever email is send, it will be opened in separate tab.
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Tests
+Default testing framework is `Rspec`. To run test suit execute from app directory:
+```
+rspec
+```
