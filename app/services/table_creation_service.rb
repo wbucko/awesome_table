@@ -16,7 +16,7 @@ class TableCreationService
     @table ||= Table.create!(
       email:  params['email'],
       name:   params['name'],
-      inputs: params['inputs'].to_json
+      inputs: params['inputs'].to_h
     )
   end
 

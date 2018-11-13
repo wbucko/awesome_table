@@ -4,10 +4,10 @@ module Api
       def create
         TableCreationService.new(table_params).call
 
-        render status: :ok
+        render json: { status: :ok }
 
       rescue => err
-        render status: :unprocessable_entity, error: err.message
+        render json: { status: :unprocessable_entity, error: err.message }
       end
 
       private
