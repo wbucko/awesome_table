@@ -1,0 +1,11 @@
+%h3 Hi!
+%p Here you got your brand new table:
+%table.table-email.table.table-bordered
+  %thead
+    %tr
+      %th{ colspan: @table.columns }= @table.name
+  %tbody
+    - @table.formatted_inputs.each do |row|
+      %tr
+        - row.each do |col|
+          %td= col
