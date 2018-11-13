@@ -7,7 +7,7 @@ module Api
         render json: { status: :ok }
 
       rescue => err
-        render json: { status: :unprocessable_entity, error: err.message }
+        render json: { status: 418, error: err.message }
       end
 
       private
