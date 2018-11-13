@@ -53,7 +53,6 @@ class Table extends Component {
       inputs[e.target.id] = e.target.value
       this.setState({ inputs: inputs })
     }
-    console.log(this.state)
   }
 
   handleSubmit = (e) => {
@@ -61,7 +60,6 @@ class Table extends Component {
 
     axios.post('/api/v1/create', this.state)
       .then(response => {
-        console.log(response)
         window.location.reload()
       })
       .catch(error => {
@@ -75,21 +73,12 @@ class Table extends Component {
         <div className='row justify-content-center'>
           <div className='col-md-10 jumbotron'>
             <div className='table--header'>
-              <h3>Awesome Table</h3>
+              <h2 className='display-4'>Awesome Table</h2>
+              <p className="lead">
+                Fill your data and have an awesome table delivered straight to your inbox!
+              </p>
             </div>
             <hr className="my-4"></hr>
-            <div>
-              <p>
-                Rows:
-                <button onClick={this.removeRow} className='btn btn-sm btn-danger'>-1</button>
-                <button onClick={this.addRow} className='btn btn-sm btn-info'>+1</button>
-              </p>
-              <p>
-                Columns:
-                <button onClick={this.removeColumn} className='btn btn-sm btn-danger'>-1</button>
-                <button onClick={this.addColumn} className='btn btn-sm btn-info'>+1</button>
-              </p>
-            </div>
             <div className='table--form'>
               <form onSubmit={this.handleSubmit}>
                 <input
@@ -101,12 +90,20 @@ class Table extends Component {
                   value={this.state.name}
                   required
                 />
+                <div className='table--buttons text-right'>
+                  <button onClick={this.removeColumn} className='btn btn-sm btn-danger'>-1</button>
+                  <button onClick={this.addColumn} className='btn btn-sm btn-info'>+1</button>
+                </div>
                 <InputGroup
                   columns={this.state.columns}
                   rows={this.state.rows}
                   inputs={this.state.inputs}
                   handleChange={this.handleChange}
                 />
+                <div className='table--buttons text-left'>
+                  <button onClick={this.removeRow} className='btn btn-sm btn-danger'>-1</button>
+                  <button onClick={this.addRow} className='btn btn-sm btn-info'>+1</button>
+                </div>
                 <div className='form-group table--email'>
                   <label htmlFor='email'>Send to</label>
                   <input

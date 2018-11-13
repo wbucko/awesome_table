@@ -20,6 +20,12 @@ body {
 }
 
 .table {
+  margin-top: 50px;
+
+  &--buttons {
+    margin: 5px 0;
+  }
+
   &--email {
     margin-top: 15px;
   }
