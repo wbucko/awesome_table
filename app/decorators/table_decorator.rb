@@ -1,5 +1,5 @@
 class TableDecorator < SimpleDelegator
   def formatted_inputs
-    inputs.values.each_slice(columns).to_a
+    inputs.sort.map { |x| x[1] }.each_slice(columns).to_a
   end
 end

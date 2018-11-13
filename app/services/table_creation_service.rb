@@ -14,9 +14,11 @@ class TableCreationService
 
   def create_table_record
     @table ||= Table.create!(
-      email:  params['email'],
-      name:   params['name'],
-      inputs: params['inputs'].to_h
+      email:   params['email'],
+      name:    params['name'],
+      rows:    params['rows'],
+      columns: params['columns'],
+      inputs:  params['inputs'].to_h
     )
   end
 
