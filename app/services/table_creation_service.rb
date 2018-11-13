@@ -1,6 +1,4 @@
 class TableCreationService
-  attr_reader :error
-
   def initialize(params)
     @params = params
   end
@@ -23,6 +21,6 @@ class TableCreationService
   end
 
   def email_table
-    TableMailer.send_table(table)
+    TableMailer.send_table(table).deliver_later
   end
 end
