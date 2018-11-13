@@ -13,3 +13,20 @@
  *= require_tree .
  *= require_self
  */
+@import 'bootstrap';
+
+body {
+  background-image: linear-gradient(to right, #6f919f, #72a0b1, #75afc3, #76bfd4, #77cfe6);
+}
+
+.table {
+  margin-top: 50px;
+
+  &--buttons {
+    margin: 5px 0;
+  }
+
+  &--email {
+    margin-top: 15px;
+  }
+}
